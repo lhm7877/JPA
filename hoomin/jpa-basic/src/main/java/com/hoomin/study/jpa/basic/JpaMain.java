@@ -1,5 +1,7 @@
 package com.hoomin.study.jpa.basic;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -20,6 +22,7 @@ public class JpaMain {
 			// persistMember(em);
 			// findMember(em);
 			// updateMember(em);
+			// useJPQL(em);
 
 			tx.commit();
 		} catch (Exception e) {
@@ -29,8 +32,19 @@ public class JpaMain {
 			em.close();
 		}
 
-		em.close();
+		// was 내려갈때 close, 커넥션 풀링 등 리소스 릴리즈
 		emf.close();
+	}
+
+	// 검색 조건도 객체지향적으로 쿼리, 엔티티 객체를 대상으로 쿼리
+	private static void useJPQL(EntityManager em) {
+		final List<Member> result = em.createQuery("select m from Member as m", Member.class)
+			.setFirstResult(1)
+			.setMaxResults(10)
+			.getResultList();
+		for (Member member : result) {
+			System.out.println(member.getName());
+		}
 	}
 
 	/**
