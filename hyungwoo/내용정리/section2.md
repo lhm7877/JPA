@@ -27,7 +27,7 @@ H2 데이터베이스
 
 - 방언 : SQL 표준을 지키지 않는 특정 데이터베이스만의 고유한 기능
 
-![image12](.\image\image12.png)
+![image12](./image/image12.png)
 
 - hibernate.dialect 속성에 지정
   - H2 : org.hibernate.dialect.H2Dialect
@@ -35,7 +35,7 @@ H2 데이터베이스
   - MySQL : org.hibernate.dialect.MySQL5InnoDBDialect
 - 하이버네이트는 40가지 이상의 데이터베이스 방언 지원
 
-![image13](.\image\image13.png)
+![image13](./image/image13.png)
 
 여기서 javax, hibernate의 의미는, javax는 표준을 지키는 거고 hibernate는 그 라이브러리에서만 쓸 수 있는 거다.
 
@@ -75,9 +75,9 @@ public class JpaMain {
 }
 ```
 
-![image14](.\image\image14.png)
+![image14](./image/image14.png)
 
-![image15](.\image\image15.png)
+![image15](./image/image15.png)
 
 위 코드 결과로 Hibernate 관련 메시지가 print된다.
 
@@ -184,7 +184,7 @@ List<Member> result = em.createQuery("select m from Member as m", Member.class)
 
 👉result
 
-![image16](.\image\image16.png)
+![image16](./image/image16.png)
 
 실제로 쿼리는 id, name 필드를 select 하지만, JPQL에서는 m, 즉 멤버 엔티티를 선택한 것이라고 보면 된다.
 
@@ -201,7 +201,7 @@ List<Member> result = em.createQuery("select m from Member as m", Member.class)
 
 👉result
 
-![image17](.\image\image17.png)
+![image17](./image/image17.png)
 
 이렇게 페이지 가져올때 굉장히 편하다.
 
