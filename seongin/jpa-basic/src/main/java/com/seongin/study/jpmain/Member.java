@@ -7,7 +7,10 @@ import javax.persistence.Id;
 public class Member {
 	@Id
 	private Long id;
+
+	@Column(unique = true, length = 10)
 	private String name;
+	private int age;
 
 	public Member() {}
 
@@ -21,7 +24,7 @@ public class Member {
 	}
 
 	public void setId(Long id) {
-		this.id = id;
+ 		this.id = id;
 	}
 
 	public String getName() {
