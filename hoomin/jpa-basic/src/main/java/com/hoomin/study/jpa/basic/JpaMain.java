@@ -23,9 +23,9 @@ public class JpaMain {
 			// findMember(em);
 			// updateMember(em);
 			// useJPQL(em);
-
-			tx.commit();
+			// removeAfterPersist(em, tx);
 		} catch (Exception e) {
+			e.printStackTrace();
 			tx.rollback();
 		} finally {
 			// entity manager가 내부적으로 db 커넥션을 물고 동작하기 때문에 꼭 닫아줘야 한다.
@@ -34,6 +34,15 @@ public class JpaMain {
 
 		// was 내려갈때 close, 커넥션 풀링 등 리소스 릴리즈
 		emf.close();
+	}
+
+	private static void removeAfterPersist(EntityManager em, EntityTransaction tx) {
+		Member member = new Member();
+		member.setName("insert 후 delete 테스트");
+		em.persist(member);
+		System.out.println(member.getId());
+		em.remove(member);
+		tx.commit();
 	}
 
 	// 검색 조건도 객체지향적으로 쿼리, 엔티티 객체를 대상으로 쿼리
