@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Member {
@@ -16,6 +17,10 @@ public class Member {
 	private String city;
 	private String street;
 	private String zipcode;
+
+	// 의미가 없다. Order를 찾으려면 Order로 가라!
+	//@OneToMany(mappedBy = "member")
+	//private List<Order> orderList = new ArrayList<>();
 
 	public Long getId() {
 		return id;

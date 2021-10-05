@@ -8,7 +8,9 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.MapKeyClass;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -18,6 +20,23 @@ public class Order {
 	@Column(name ="ORDER_ID")
 	private Long id;
 
+	@ManyToOne
+	@JoinColumn(name = "MEMBER_ID")
+	private Member member;
+
+	@OneToMany(mappedBy = "order")
+	private List<OrderItem> orderItemList = new ArrayList<>();
+
+	private LocalDateTime orderDate;
+
+	@Enumerated(EnumType.STRING)
+	private OrderStatus status;
+
+	public void addOrderItem(OrderItem orderItem) {
+		orderItemList.add(orderItem);
+		orderItem.setOrder(this);
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -26,12 +45,12 @@ public class Order {
 		this.id = id;
 	}
 
-	public Long getMemberId() {
-		return memberId;
+	public Member getMember() {
+		return member;
 	}
 
-	public void setMemberId(Long memberId) {
-		this.memberId = memberId;
+	public void setMember(Member member) {
+		this.member = member;
 	}
 
 	public LocalDateTime getOrderDate() {
@@ -49,11 +68,4 @@ public class Order {
 	public void setStatus(OrderStatus status) {
 		this.status = status;
 	}
-
-	@Column(name = "MEMBER_ID")
-	private Long memberId;
-	private LocalDateTime orderDate;
-
-	@Enumerated(EnumType.STRING)
-	private OrderStatus status;
 }
