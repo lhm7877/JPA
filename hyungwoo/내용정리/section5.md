@@ -77,7 +77,7 @@ public class Team {
 
 실행해보면
 
-![image105](/image/image105.png)
+![image105](./image/image105.png)
 
 team_id 필드가 생성된다.
 
@@ -153,7 +153,7 @@ Team findTeam = em.find(Team.class, findTeamId);
 
 #### 객체지향 모델링 (객체 연관관계 사용)
 
-![image108](C:\Users\wu2ee\Desktop\스터디\JPA\hyungwoo\내용정리\image\image108.png)
+![image108](./image/image108.png)
 
 위와 같이 멤버 객체에 팀의 아이디가 아닌 팀 자체가 참조로 들어가게 된다.
 
@@ -415,7 +415,7 @@ JOIN MEMBER M ON T.TEAM_ID = M.TEAM_ID
 
 #### 둘 중 하나로 외래 키를 관리해야 한다.
 
-![image116](./\image\image116.png)
+![image116](./image/image116.png)
 
 멤버의 Team이 바꼈을때 MEMBER테이블의 FK를 변경해야할지, 팀의 Member가 바꼈을때 MEMBER 테이블의 FK를 변경해야할지 딜레마가 오게 된다.
 
