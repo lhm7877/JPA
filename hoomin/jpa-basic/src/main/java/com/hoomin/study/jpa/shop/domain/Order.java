@@ -8,6 +8,8 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.Getter;
@@ -20,9 +22,9 @@ public class Order {
     @Id @GeneratedValue
     @Column(name = "ORDER_ID")
     private Long id;
-    @Column(name = "MEMBER_ID")
-    private Long memberId; // 객체지향이 아니다
-    // private Member member;
+    @ManyToOne
+    @JoinColumn("MEMBER_ID")
+    private Member member;
     private LocalDateTime orderDate;
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
