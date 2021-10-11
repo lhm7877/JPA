@@ -209,11 +209,11 @@ ORM (Object Relational Mapping)
 
 #### JPA 동작 - 저장
 
-![image6](.\image\image6.png)
+![image6](./image/image6.png)
 
 #### JPA 동작 - 조회
 
-![image7](.\image\image7.png)
+![image7](./image/image7.png)
 
 #### JPA 소개
 
@@ -227,7 +227,7 @@ JPA는 인터페이스의 모음 (껍데기)
 
 JPA 2.1 표준 명세를 구현한 3가지 구현체가 있다. (하이버네이트, EclipseLink, DataNucleus)
 
-![image8](.\image\image8.png)
+![image8](./image/image8.png)
 
 #### JPA를 왜 사용해야 하는가
 
@@ -254,11 +254,11 @@ JPA와 CRUD
 
 기존 : 필드 변경시 모든 SQL 수정 해야함.
 
-![image9](.\image\image9.png)
+![image9](./image/image9.png)
 
 JPA : 필드만 추가하면 됨. SQL은 JPA가 처리.
 
-![image10](C:\Users\wu2ee\Desktop\스터디\JPA\hyungwoo\image\image10.png)
+![image10](./image/image10.png)
 
 #### 3. JPA와 패러다임의 불일치 해결
 
@@ -271,7 +271,7 @@ JPA : 필드만 추가하면 됨. SQL은 JPA가 처리.
 
 #### JPA와 상속 : 객체 상속 관계 - Table 슈퍼타입 서브타입 관계 
 
-![image11](.\image\image11.png)
+![image11](./image/image11.png)
 
 **[저장]**
 
