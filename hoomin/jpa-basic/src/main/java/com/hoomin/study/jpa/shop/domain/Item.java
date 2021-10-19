@@ -17,7 +17,7 @@ import lombok.Setter;
 @Getter @Setter
 @Inheritance(strategy = JOINED)
 @DiscriminatorColumn
-public abstract class Item {
+public abstract class Item extends BaseEntity{
     @Id
     @GeneratedValue
     @Column(name = "ITEM_ID")
