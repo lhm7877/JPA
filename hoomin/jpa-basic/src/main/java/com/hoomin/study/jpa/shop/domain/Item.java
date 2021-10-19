@@ -15,7 +15,7 @@ import lombok.Setter;
 
 @Entity
 @Getter @Setter
-@Inheritance(strategy = SINGLE_TABLE)
+@Inheritance(strategy = JOINED)
 @DiscriminatorColumn
 public abstract class Item {
     @Id
