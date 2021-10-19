@@ -2,7 +2,7 @@
 /shelf/
 /workspace.xml
 # Datasource local storage ignored files
-/../../../../../../../../../:\Users\wu2ee\Desktop\소프트웨어 공부\인프런\자바 ORM 표준 JPA 프로그래밍 - 기본편\jpashop\.idea/dataSources/
+/../../../../../../:\Users\wu2ee\Desktop\jpashop\.idea/dataSources/
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/
