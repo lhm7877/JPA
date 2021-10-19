@@ -7,6 +7,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
+import com.hoomin.study.jpa.shop.domain.Book;
+
 public class JpaMain {
 	public static void main(String[] args) {
 		// 어플리케이션 로딩 시점에 하나만 만들어야 한다 (web 서버가 올라갈때 하나만 생성)
@@ -24,6 +26,11 @@ public class JpaMain {
 			// updateMember(em);
 			// useJPQL(em);
 			// removeAfterPersist(em, tx);
+			Book book = new Book();
+			book.setName("책이름");
+			book.setAuthor("저자");
+			em.persist(book);
+			tx.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
 			tx.rollback();
