@@ -6,6 +6,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
+import jpabook.jpashop.domain.Book;
+
 public class JpaMain {
 
 	public static void main(String[] args) {
@@ -33,6 +35,11 @@ public class JpaMain {
 			// em.persist(orderItem);
 
 
+			Book book = new Book();
+			book.setName("JPA");
+			book.setAuthor("김성인");
+
+			em.persist(book);
 
 			tx.commit();
 		} catch (Exception e) {

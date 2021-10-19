@@ -9,7 +9,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
-public class OrderItem {
+public class OrderItem extends BaseEntity {
 
 	@Id @GeneratedValue
 	@Column(name ="ORDER_ITEM_ID")
