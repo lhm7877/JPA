@@ -1,3 +1,5 @@
+package hellojpa;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
