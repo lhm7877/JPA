@@ -38,5 +38,7 @@
 
 #### Action
 1. 문제 <- 함수형 문제(상속 관계 매핑) 적용여부 결정.
-2. Column 타입 JSON 적용
-3. createdby 도입여부 결정. (judge시 동작 고민)
+1. Column 타입 JSON 적용
+1. createdby 도입여부 결정. (judge시 동작 고민)
+1. fk 이름 정하자
+1. @ManyToOne optional false 설정 적용
