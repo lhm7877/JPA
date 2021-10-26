@@ -4,6 +4,8 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static javax.persistence.FetchType.*;
+
 @Entity
 public class Category extends BaseEntity {
 
@@ -14,7 +16,7 @@ public class Category extends BaseEntity {
 
     // 카테고리가 쭉 ~ 분류되는데, 이걸 아래와 같이 self로 할 수 있음
 
-    @ManyToOne
+    @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "PARENT_ID")
     private Category parent;
 
