@@ -7,6 +7,10 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
+import com.hoomin.study.jpa.shop.domain.Book;
+import com.hoomin.study.jpa.shop.domain.Member2;
+import com.hoomin.study.jpa.shop.domain.Order;
+
 public class JpaMain {
 	public static void main(String[] args) {
 		// 어플리케이션 로딩 시점에 하나만 만들어야 한다 (web 서버가 올라갈때 하나만 생성)
@@ -24,6 +28,17 @@ public class JpaMain {
 			// updateMember(em);
 			// useJPQL(em);
 			// removeAfterPersist(em, tx);
+			// addBook(em, tx);
+			// proxyTest(em);
+			Order order = new Order();
+			Member2 member2 = new Member2();
+			member2.setName("fff");
+			// member2.addOrder(order);
+			order.addMember2(member2);
+			em.persist(order);
+			em.flush();
+			em.clear();
+			System.out.println();
 		} catch (Exception e) {
 			e.printStackTrace();
 			tx.rollback();
@@ -34,6 +49,27 @@ public class JpaMain {
 
 		// was 내려갈때 close, 커넥션 풀링 등 리소스 릴리즈
 		emf.close();
+	}
+
+	private static void proxyTest(EntityManager em) {
+		Member2 member2 = new Member2();
+		member2.setName("name");
+		em.persist(member2);
+
+		em.flush();
+		em.clear();
+
+		final Member2 findMember = em.find(Member2.class, member2.getId());
+		final Member2 reference = em.getReference(Member2.class, member2.getId());
+		System.out.println("a == a" + (findMember == reference));
+	}
+
+	private static void addBook(EntityManager em, EntityTransaction tx) {
+		Book book = new Book();
+		book.setName("책이름");
+		book.setAuthor("저자");
+		em.persist(book);
+		tx.commit();
 	}
 
 	private static void removeAfterPersist(EntityManager em, EntityTransaction tx) {
@@ -47,7 +83,7 @@ public class JpaMain {
 
 	// 검색 조건도 객체지향적으로 쿼리, 엔티티 객체를 대상으로 쿼리
 	private static void useJPQL(EntityManager em) {
-		final List<Member> result = em.createQuery("select m from Member as m", Member.class)
+		final List<Member> result = em.createQuery("select m from Member2 as m", Member.class)
 			.setFirstResult(1)
 			.setMaxResults(10)
 			.getResultList();

@@ -18,14 +18,19 @@ import lombok.Setter;
 @Entity
 @Table(name = "ORDERS")
 @Getter @Setter
-public class Order {
+public class Order extends BaseEntity {
     @Id @GeneratedValue
     @Column(name = "ORDER_ID")
     private Long id;
     @ManyToOne
-    @JoinColumn("MEMBER_ID")
-    private Member member;
+    @JoinColumn(name = "MEMBER_ID")
+    private Member2 member2;
     private LocalDateTime orderDate;
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
+
+    public void addMember2(Member2 member2) {
+        this.member2 = member2;
+        member2.getOrderList().add(this);
+    }
 }
